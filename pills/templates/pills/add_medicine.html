@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Add Medicine</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="id_name">Name:</label>
+        {{ form.name }}
+    </div>
+    <div>
+        <label for="id_dose">Dose:</label>
+        {{ form.dose }}
+    </div>
+    <div>
+        <label for="id_days">Days:</label>
+        {{ form.days }}
+    </div>
+    <div>
+        <label for="id_time">Time:</label>
+        {{ form.time }}
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

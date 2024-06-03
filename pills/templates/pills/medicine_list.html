@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Medicine List</h2> 
+    <a class="btn btn-primary" href="{% url 'add_medicine' %}">Add Medicine</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Dose</th>
+                <th>Days</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicine %}
+                <tr>
+                    <td>{{ medicine.name }}</td>
+                    <td>{{ medicine.dose }}</td>
+                    <td>{{ medicine.days }}</td>
+                    <td>{{ medicine.time }}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'update_medicine' medicine.pk %}">Update</a>
+                        <a class="btn btn-danger" href="{% url 'delete_medicine' medicine.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
